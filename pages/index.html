@@ -56,7 +56,7 @@
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
-               
+
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
@@ -80,20 +80,26 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                            </div>
-                            <!-- /input-group -->
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <div class="input-group custom-search-form">
+
+                                        <select class="form-control col-sm-12" id="parish-selector" placeholder="Parish Select">
+                                            <option>Kingston</option>
+                                            <option>St. Mary</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <!-- /input-group -->
+                                </div>
+                            </form>
                         </li>
                         <li>
                             <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
-                        
+
                         <li>
                             <a href="#"><i class="fa fa-files-o fa-fw"></i>More<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -121,13 +127,15 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
+
+            <!-- Weather notification Notification Row -->
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-comments fa-5x"></i>
+                                    <i class="fa fa-binoculars fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">26</div>
@@ -142,7 +150,7 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
+                                    <i class="fa fa-circle-o fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">12</div>
@@ -157,7 +165,7 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-shopping-cart fa-5x"></i>
+                                    <i class="fa fa-compress fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">124</div>
@@ -172,7 +180,7 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-support fa-5x"></i>
+                                    <i class="fa fa-forward fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">13</div>
@@ -183,7 +191,8 @@
                     </div>
                 </div>
             </div>
-            <!-- /.row -->
+            <!-- / weather notification row .row -->
+
             <div class="row">
                 <div class="col-lg-8">
                     <div class="panel panel-default">
@@ -215,7 +224,7 @@
                         </div>
                         <!-- /.panel-body -->
                     </div>
-            
+
                     <!-- Timeline Panel Start-->
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -224,7 +233,7 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <ul class="timeline">
-                                
+
                                 <li>
                                     <div class="timeline-badge"><i class="fa fa-check"></i>
                                     </div>
@@ -239,17 +248,17 @@
                                         </div>
                                     </div>
                                 </li>
-                                
+
                             </ul>
                         </div>
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.timeline panel -->
                 </div>
-                
+
                 <!-- /.col-lg-8 -->
                 <div class="col-lg-4">
-                    
+
                     <!-- Island Average Pannnel-->
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -261,7 +270,7 @@
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
-                   
+
                 </div>
                 <!-- /.col-lg-4 -->
             </div>
@@ -288,6 +297,8 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
+    
+    <!-- Custom Application Javascript-->
 
 </body>
 
