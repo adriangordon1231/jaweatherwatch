@@ -7,7 +7,7 @@ JAWeatherWatch.module('Cities', function(Cities, JAWeatherWatch, Backbone, Mario
     
     /*  Cities
     *   This model is used to model the datat retued by the open weather api 
-    *   for each individual city in jamaica
+    *   for each individual city in jamaica (must provide parish name!!)
     ________________________________________________________________________*/
     Cities.City = Backbone.Model.extend({
         defaults:{
@@ -30,14 +30,24 @@ JAWeatherWatch.module('Cities', function(Cities, JAWeatherWatch, Backbone, Mario
         setQuery : function(){
             
             var query = this.url;
-            var search = query.concat(',',this.get('country'),this.get('apiKey'));
+            var search = query.concat(this.get('parishName'),',',this.get('country'),this.get('apiKey'));
             
             return search;
         }
         
     });
     
-   
+    Cities.Forecast = Cities.City.extend({
+        url: 'http://api.openweathermap.org/data/2.5/forecast/daily?q=',
+        setQuery: function(){
+            
+            console.log('set query running');
+            var query = this.url;
+            var search = query.concat(this.get('parishName'),',',this.get('country'),this.get('apiKey'));
+            
+            return search;
+        }
+    });
     
     
 });
@@ -58,3 +68,17 @@ test.fetch({
 });
 */
 
+/*  Forecast Model Test => Success
+_________________________________*/
+/*
+var test = new JAWeatherWatch.Cities.Forecast({parishName:'kingston'});
+
+test.fetch({
+    success: function(){
+        console.log(test.get('list')[0].clouds);
+    },
+    error: function(){
+        alert('error when fetching data');
+    }
+});
+*/
