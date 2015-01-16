@@ -12,8 +12,7 @@ JAWeatherWatch.addRegions({
 /*  Begins the Backbone history api on Applicaiton Start
 ________________________________________________________*/
 JAWeatherWatch.on('start',function(){
-    //tmp
-    console.log(this.content);
+    
     
     Backbone.history.start();
 });
