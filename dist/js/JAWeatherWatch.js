@@ -1,0 +1,1 @@
+"use strict";window.JAWeatherWatch=new Backbone.Marionette.Application,JAWeatherWatch.addRegions({menu:"#main-menu",content:"#page-wrapper"}),JAWeatherWatch.on("start",function(){Backbone.history.start()});
