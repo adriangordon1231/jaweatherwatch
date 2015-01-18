@@ -13,10 +13,5 @@ JAWeatherWatch.module('Views', function(Views, JAWeatherWatch,Backbone,Marionett
 });
 
 
-/* Side Menu Test  => works*/
-/*
-var test = new JAWeatherWatch.Views.SideMenu({el:"#test-row"});
-test.render();
-*/
 
 

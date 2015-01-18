@@ -12,6 +12,7 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
             
             this.showMenu();
         },
+        // loads the SideMenu item view in the menu region of the app
         showMenu:function(){
             JAWeatherWatch.menu.show(new JAWeatherWatch.Views.SideMenu());
         }
