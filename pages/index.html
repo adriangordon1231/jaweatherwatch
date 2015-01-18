@@ -330,8 +330,8 @@
         var router  = new JAWeatherWatch.App.Router({controller:controller});
         
         // start the conroller and the marionette application
-        controller.start();
-        JAWeatherWatch.start();
+        controller.start().then(JAWeatherWatch.start());
+        
         
     </script>
 
