@@ -1,1 +1,1 @@
-"use strict";JAWeatherWatch.module("Views",function(e,t,i,m){e.SideMenu=m.ItemView.extend({template:"#menu-template"})});
+"use strict";JAWeatherWatch.module("Views",function(e,t,a,d){e.SideMenu=d.ItemView.extend({template:"#menu-template"}),e.Dashboard=d.LayoutView.extend({template:"#dashboard-template"})});

@@ -10,6 +10,10 @@ JAWeatherWatch.module('Views', function(Views, JAWeatherWatch,Backbone,Marionett
         template:'#menu-template'
     });
     
+    Views.Dashboard = Marionette.LayoutView.extend({
+        template:'#dashboard-template'
+    });
+    
 });
 
 
