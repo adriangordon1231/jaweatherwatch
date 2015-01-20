@@ -152,38 +152,19 @@
                 
             </div>
             <!-- / weather notification row .row -->
-
+            
+            
             <div class="row">
+                
                 <div class="col-lg-8">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Temperature Timeline
-                            <div class="pull-right">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        Actions
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="#">Action</a>
-                                        </li>
-                                        <li><a href="#">Another action</a>
-                                        </li>
-                                        <li><a href="#">Something else here</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Separated link</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div id="morris-area-chart"></div>
-                        </div>
-                        <!-- /.panel-body -->
+                    
+                    <!-- Weather Forecast Section-->
+                    <div class="panel panel-default" id="forecast">
+                        
+                        <!-- Load Weather Forecast Template -->
+                        
                     </div>
+                    <!-- /. Weather Forecast Section -->
 
                     <!-- Timeline Panel Start-->
                     <div class="panel panel-default">
@@ -214,9 +195,8 @@
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.timeline panel -->
-                </div>
-
-                <!-- /.col-lg-8 -->
+                </div>                
+                
                 <div class="col-lg-4">
 
                     <!-- Island Average Pannnel-->
@@ -234,7 +214,7 @@
                 </div>
                 <!-- /.col-lg-4 -->
             </div>
-            <!-- /.row -->
+            <!-- /. row -->
             
             <!-- This row exists for nothing more than to test the rending of my templates-->
             <div class="row" id="test-row">
@@ -303,6 +283,40 @@
                         </div>
                     </div>
                 </div>
+    </script>
+    
+    <script type="text/html" id="forecast-template">
+        
+                 <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Forecast Timeline
+                            <div class="pull-right">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        Actions
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li><a href="#">Action</a>
+                                        </li>
+                                        <li><a href="#">Another action</a>
+                                        </li>
+                                        <li><a href="#">Something else here</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div id="morris-area-chart"></div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+        
     </script>
 
     <!-- Dependecies-->

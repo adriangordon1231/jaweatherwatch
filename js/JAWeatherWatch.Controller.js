@@ -23,9 +23,14 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
             // initialize all of the dashboard related views
             var dashboard = new JAWeatherWatch.Views.Dashboard();
             var notifications = new JAWeatherWatch.Views.Notifications();
+            var forecast = new JAWeatherWatch.Views.Forecast({});
             
+            // rennders the dashbord in the content section of hte DOM
             JAWeatherWatch.content.show(dashboard);
+            
+            // renders the sub views within the daskboard
             dashboard.getRegion('notifications').show(notifications);
+            dashboard.getRegion('forecast').show(forecast);
             
         }
         

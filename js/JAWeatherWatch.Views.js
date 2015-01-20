@@ -13,12 +13,17 @@ JAWeatherWatch.module('Views', function(Views, JAWeatherWatch,Backbone,Marionett
     Views.Dashboard = Marionette.LayoutView.extend({
         template:'#dashboard-template',
         regions:{
-            notifications:'#notifications'
+            notifications:'#notifications',
+            forecast:'#forecast'
         }
     });
     
     Views.Notifications = Marionette.ItemView.extend({
         template:"#notifications-template"
+    });
+    
+    Views.Forecast = Marionette.ItemView.extend({
+        template:"#forecast-template"
     });
     
 });
