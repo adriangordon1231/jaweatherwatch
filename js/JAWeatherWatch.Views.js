@@ -14,7 +14,8 @@ JAWeatherWatch.module('Views', function(Views, JAWeatherWatch,Backbone,Marionett
         template:'#dashboard-template',
         regions:{
             notifications:'#notifications',
-            forecast:'#forecast'
+            forecast:'#forecast',
+            averages:'#average'
         }
     });
     
@@ -24,6 +25,10 @@ JAWeatherWatch.module('Views', function(Views, JAWeatherWatch,Backbone,Marionett
     
     Views.Forecast = Marionette.ItemView.extend({
         template:"#forecast-template"
+    });
+    
+    Views.WeatherAverage = Marionette.ItemView.extend({
+        template:'#weather-average-template'
     });
     
 });

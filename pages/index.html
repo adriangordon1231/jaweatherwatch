@@ -200,16 +200,12 @@
                 <div class="col-lg-4">
 
                     <!-- Island Average Pannnel-->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Island Wide Average
-                        </div>
-                        <div class="panel-body">
-                            <div id="morris-donut-chart"></div>
-                        </div>
-                        <!-- /.panel-body -->
+                    <div class="panel panel-default" id="average">
+                        
+                        <!-- Load Island Wide Average Template Here -->
+                        
                     </div>
-                    <!-- /.panel -->
+                    <!-- /. Island Wide Average panel -->
 
                 </div>
                 <!-- /.col-lg-4 -->
@@ -317,6 +313,16 @@
                         <!-- /.panel-body -->
                     </div>
         
+    </script>
+    
+    <script type="text/html" id="weather-average-template">
+        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Island Wide Averages
+                        </div>
+                        <div class="panel-body">
+                            <div id="morris-donut-chart"></div>
+                        </div>
+                        <!-- /.panel-body -->
     </script>
 
     <!-- Dependecies-->

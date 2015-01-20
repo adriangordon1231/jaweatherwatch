@@ -24,6 +24,7 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
             var dashboard = new JAWeatherWatch.Views.Dashboard();
             var notifications = new JAWeatherWatch.Views.Notifications();
             var forecast = new JAWeatherWatch.Views.Forecast({});
+            var averages = new JAWeatherWatch.Views.WeatherAverage({});
             
             // rennders the dashbord in the content section of hte DOM
             JAWeatherWatch.content.show(dashboard);
@@ -31,6 +32,7 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
             // renders the sub views within the daskboard
             dashboard.getRegion('notifications').show(notifications);
             dashboard.getRegion('forecast').show(forecast);
+            dashboard.getRegion('averages').show(averages);
             
         }
         
