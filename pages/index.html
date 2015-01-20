@@ -85,7 +85,59 @@
         </nav>
 
         <div id="page-wrapper">
-            <div class="row">
+       
+            <!-- Dashboard template loaded here -->
+            
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+    
+    <!-- Templates -->
+    <script type="text/html" id="menu-template">
+                 <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <div class="input-group custom-search-form">
+
+                                        <select class="form-control col-sm-12" id="parish-selector" placeholder="Parish Select">
+                                            <option>Kingston</option>
+                                            <option>Portmore</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <!-- /input-group -->
+                                </div>
+                            </form>
+                        </li>
+                        <li>
+                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#"><i class="fa fa-files-o fa-fw"></i>More Stuff<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="about.html">About</a>
+                                </li>
+                                <li>
+                                    <a href="login.html">Login</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+    </script>
+    
+    <script type="text/html" id="dashboard-template">
+          <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Dashboard</h1>
                 </div>
@@ -94,7 +146,79 @@
             <!-- /.row -->
 
             <!-- Weather notification Notification Row -->
+            <div class="row" id="notifications">
+                
+                <!-- Notifications Template Loads here-->
+                
+            </div>
+            <!-- / weather notification row .row -->
+            
+            
             <div class="row">
+                
+                <div class="col-lg-8">
+                    
+                    <!-- Weather Forecast Section-->
+                    <div class="panel panel-default" id="forecast">
+                        
+                        <!-- Load Weather Forecast Template -->
+                        
+                    </div>
+                    <!-- /. Weather Forecast Section -->
+
+                    <!-- Timeline Panel Start-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-clock-o fa-fw"></i> Update Timeline
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <ul class="timeline">
+
+                                <li>
+                                    <div class="timeline-badge"><i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4 class="timeline-title">Lorem ipsum dolor</h4>
+                                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago via Twitter</small>
+                                            </p>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero laboriosam dolor perspiciatis omnis exercitationem. Beatae, officia pariatur? Est cum veniam excepturi. Maiores praesentium, porro voluptas suscipit facere rem dicta, debitis.</p>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.timeline panel -->
+                </div>                
+                
+                <div class="col-lg-4">
+
+                    <!-- Island Average Pannnel-->
+                    <div class="panel panel-default" id="average">
+                        
+                        <!-- Load Island Wide Average Template Here -->
+                        
+                    </div>
+                    <!-- /. Island Wide Average panel -->
+
+                </div>
+                <!-- /.col-lg-4 -->
+            </div>
+            <!-- /. row -->
+            
+            <!-- This row exists for nothing more than to test the rending of my templates-->
+            <div class="row" id="test-row">
+            </div>
+    </script>
+    
+    <script type="text/html" id="notifications-template">
+                
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -103,7 +227,7 @@
                                     <i class="fa fa-binoculars fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
+                                    <div class="huge">40</div>
                                     <div>Weather</div>
                                 </div>
                             </div>
@@ -155,14 +279,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- / weather notification row .row -->
-
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="panel panel-default">
+    </script>
+    
+    <script type="text/html" id="forecast-template">
+        
+                 <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Temperature Timeline
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Forecast Timeline
                             <div class="pull-right">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -189,108 +312,17 @@
                         </div>
                         <!-- /.panel-body -->
                     </div>
-
-                    <!-- Timeline Panel Start-->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-clock-o fa-fw"></i> Update Timeline
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <ul class="timeline">
-
-                                <li>
-                                    <div class="timeline-badge"><i class="fa fa-check"></i>
-                                    </div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <h4 class="timeline-title">Lorem ipsum dolor</h4>
-                                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago via Twitter</small>
-                                            </p>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero laboriosam dolor perspiciatis omnis exercitationem. Beatae, officia pariatur? Est cum veniam excepturi. Maiores praesentium, porro voluptas suscipit facere rem dicta, debitis.</p>
-                                        </div>
-                                    </div>
-                                </li>
-
-                            </ul>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.timeline panel -->
-                </div>
-
-                <!-- /.col-lg-8 -->
-                <div class="col-lg-4">
-
-                    <!-- Island Average Pannnel-->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Island Wide Average
-                        </div>
-                        <div class="panel-body">
-                            <div id="morris-donut-chart"></div>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-
-                </div>
-                <!-- /.col-lg-4 -->
-            </div>
-            <!-- /.row -->
-            
-            <!-- This row exists for nothing more than to test the rending of my templates-->
-            <div class="row" id="test-row">
-            </div>
-            
-        </div>
-        <!-- /#page-wrapper -->
-
-    </div>
-    <!-- /#wrapper -->
+        
+    </script>
     
-    <!-- Templates -->
-    <script type="text/html" id="menu-template">
-                 <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <form class="form-inline">
-                                <div class="form-group">
-                                    <div class="input-group custom-search-form">
-
-                                        <select class="form-control col-sm-12" id="parish-selector" placeholder="Parish Select">
-                                            <option>Kingston</option>
-                                            <option>St. Mary</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
-                                    </div>
-                                    <!-- /input-group -->
-                                </div>
-                            </form>
-                        </li>
-                        <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                        </li>
-
-                        <li class="dropdown">
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i>More Stuff<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="about.html">About</a>
-                                </li>
-                                <li>
-                                    <a href="login.html">Login</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
+    <script type="text/html" id="weather-average-template">
+        <div class="panel-heading">
+            <i class="fa fa-bar-chart-o fa-fw"></i> Island Wide Averages
+        </div>
+        <div class="panel-body">
+            <div id="morris-donut-chart"></div>
+        </div>
+        <!-- /.panel-body -->
     </script>
 
     <!-- Dependecies-->
@@ -329,7 +361,9 @@
         var controller = new JAWeatherWatch.App.Controller();
         var router  = new JAWeatherWatch.App.Router({controller:controller});
         
+
         // start the conroller and the marionette application
+
         controller.start().then(JAWeatherWatch.start());
         
         
