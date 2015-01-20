@@ -17,8 +17,15 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
         showMenu:function(){
             JAWeatherWatch.menu.show(new JAWeatherWatch.Views.SideMenu());
         },
+        // loads all the views related to the main application dashbaord
         showDashboard: function(){
-            JAWeatherWatch.content.show(new JAWeatherWatch.Views.Dashboard());
+            
+            // initialize all of the dashboard related views
+            var dashboard = new JAWeatherWatch.Views.Dashboard();
+            var notifications = new JAWeatherWatch.Views.Notifications();
+            
+            JAWeatherWatch.content.show(dashboard);
+            dashboard.getRegion('notifications').show(notifications);
             
         }
         

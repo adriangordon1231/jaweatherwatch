@@ -1,6 +1,6 @@
 "use strict"
 
-/*  Parishes Module
+/*  Cities Module
  *  Contians the models and collections that are intended to model the weather patterns in each parish     
 ______________________________________________________________________________________________________*/
 JAWeatherWatch.module('Cities', function(Cities, JAWeatherWatch, Backbone, Marionette){
