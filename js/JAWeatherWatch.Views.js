@@ -20,7 +20,14 @@ JAWeatherWatch.module('Views', function(Views, JAWeatherWatch,Backbone,Marionett
     });
     
     Views.Notifications = Marionette.ItemView.extend({
-        template:"#notifications-template"
+        template:"#notifications-template",
+        initialize: function(){
+            
+            
+            this.listenTo(this.model, 'change', function(){
+                console.log(this.model.attributes);
+            });
+        }
     });
     
     Views.Forecast = Marionette.ItemView.extend({

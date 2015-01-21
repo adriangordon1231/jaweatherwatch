@@ -8,6 +8,7 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
     */
     App.Controller = Marionette.Controller.extend({
         
+        dashboard: new JAWeatherWatch.Views.Dashboard(),
         start:function(){
             
             this.showMenu();
@@ -18,21 +19,39 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
             JAWeatherWatch.menu.show(new JAWeatherWatch.Views.SideMenu());
         },
         // loads all the views related to the main application dashbaord
-        showDashboard: function(){
+        showDashboard: function(){            
             
-            // initialize all of the dashboard related views
-            var dashboard = new JAWeatherWatch.Views.Dashboard();
-            var notifications = new JAWeatherWatch.Views.Notifications();
+            
+            
             var forecast = new JAWeatherWatch.Views.Forecast({});
             var averages = new JAWeatherWatch.Views.WeatherAverage({});
             
             // rennders the dashbord in the content section of hte DOM
-            JAWeatherWatch.content.show(dashboard);
+            JAWeatherWatch.content.show(this.dashboard);
             
             // renders the sub views within the daskboard
-            dashboard.getRegion('notifications').show(notifications);
-            dashboard.getRegion('forecast').show(forecast);
-            dashboard.getRegion('averages').show(averages);
+            this.dashboard.getRegion('notifications').show(this.notificationsInit());
+            this.dashboard.getRegion('forecast').show(forecast);
+            this.dashboard.getRegion('averages').show(averages);
+            
+        },
+       // initilizes the notifications view and returns a notification Marionette.ItemView Object
+        notificationsInit: function(){
+            
+            var city = new JAWeatherWatch.Cities.City({parishName:'kingston'});
+            var notifications = new JAWeatherWatch.Views.Notifications({model:city});
+            city.fetch({
+                success: function(){                    
+                    console.log('city data fetched sucessfully');                
+                                        
+                },
+                error: function(){
+                    alert('could not get weather data');
+                    
+                }
+            });
+            
+            return notifications;
             
         }
         
