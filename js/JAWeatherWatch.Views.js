@@ -23,8 +23,9 @@ JAWeatherWatch.module('Views', function(Views, JAWeatherWatch,Backbone,Marionett
         template:"#notifications-template",
         initialize: function(){
             
-            
+            // rerenders everytime the model changes
             this.listenTo(this.model, 'change', function(){
+                this.render();
                 console.log(this.model.attributes);
             });
         }

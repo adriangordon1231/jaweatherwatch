@@ -14,7 +14,17 @@ JAWeatherWatch.module('Cities', function(Cities, JAWeatherWatch, Backbone, Mario
             // stores my api key as well the required query string to add to the request
             apiKey: '&APPID=84cb7efaf4ac2947aa6381637904ee5e',
             country:'jamaica',
-            parishName: false
+            parishName: false,
+            weather: [{
+                description: 'no description'
+            }],
+            main:{
+                temp:0,
+                pressure:0
+            },
+            wind:{
+                speed:0
+            }
         }, 
         url:'http://api.openweathermap.org/data/2.5/weather?q=',
         initialize: function(){
