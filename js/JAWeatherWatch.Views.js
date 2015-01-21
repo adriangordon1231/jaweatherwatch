@@ -7,7 +7,24 @@ JAWeatherWatch.module('Views', function(Views, JAWeatherWatch,Backbone,Marionett
     *   main side menu
     ___________________________________________________________________________*/
     Views.SideMenu = Marionette.ItemView.extend({
-        template:'#menu-template'
+        template:'#menu-template',
+        ui:{
+            selector:'#parish-selector'
+        },
+        events:{
+            "change @ui.selector":'updateParish'
+        },
+        onRender: function(){
+            
+            //this.$el.find('#parish-selector').on('change', this.updateParish);
+            
+        },
+        /* Updates the value of the model once the selector value changes*/
+        updateParish: function(){
+            
+            this.model.set('name', this.ui.selector.val().toLocaleLowerCase() );
+            console.log(this.model.get('name'));
+        }
     });
     
     Views.Dashboard = Marionette.LayoutView.extend({

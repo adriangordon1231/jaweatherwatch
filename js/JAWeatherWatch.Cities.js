@@ -59,6 +59,12 @@ JAWeatherWatch.module('Cities', function(Cities, JAWeatherWatch, Backbone, Mario
         }
     });
     
+    Cities.Parish = Backbone.Model.extend({
+        defaults:{
+            name:'kingston'
+        }
+    });
+    
     
 });
 

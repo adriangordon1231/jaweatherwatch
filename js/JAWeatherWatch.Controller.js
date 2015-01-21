@@ -9,6 +9,7 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
     App.Controller = Marionette.Controller.extend({
         
         dashboard: new JAWeatherWatch.Views.Dashboard(),
+        parish: new JAWeatherWatch.Cities.Parish(),
         start:function(){
             
             this.showMenu();
@@ -16,7 +17,7 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
         },
         // loads the SideMenu item view in the menu region of the app
         showMenu:function(){
-            JAWeatherWatch.menu.show(new JAWeatherWatch.Views.SideMenu());
+            JAWeatherWatch.menu.show(new JAWeatherWatch.Views.SideMenu({model:this.parish}));
         },
         // loads all the views related to the main application dashbaord
         showDashboard: function(){            
