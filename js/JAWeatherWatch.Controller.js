@@ -14,6 +14,10 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
             
             this.showMenu();
             this.showDashboard();
+            
+            this.listenTo(this.parish, 'change', function(){
+                this.showDashboard();
+            });
         },
         // loads the SideMenu item view in the menu region of the app
         showMenu:function(){
@@ -32,6 +36,8 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
             
             // renders the sub views within the daskboard
             this.dashboard.getRegion('notifications').show(this.notificationsInit());
+            
+            
             this.dashboard.getRegion('forecast').show(forecast);
             this.dashboard.getRegion('averages').show(averages);
             
@@ -39,7 +45,7 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
        // initilizes the notifications view and returns a notification Marionette.ItemView Object
         notificationsInit: function(){
             
-            var city = new JAWeatherWatch.Cities.City({parishName:'kingston'});
+            var city = new JAWeatherWatch.Cities.City({parishName:this.parish.get('name')});
             var notifications = new JAWeatherWatch.Views.Notifications({model:city});
             city.fetch({
                 success: function(){                    

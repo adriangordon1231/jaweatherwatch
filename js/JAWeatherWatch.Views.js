@@ -23,7 +23,7 @@ JAWeatherWatch.module('Views', function(Views, JAWeatherWatch,Backbone,Marionett
         updateParish: function(){
             
             this.model.set('name', this.ui.selector.val().toLocaleLowerCase() );
-            console.log(this.model.get('name'));
+            
         }
     });
     
