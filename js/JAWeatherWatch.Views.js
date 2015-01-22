@@ -55,37 +55,30 @@ JAWeatherWatch.module('Views', function(Views, JAWeatherWatch,Backbone,Marionett
     Views.WeatherAverage = Marionette.ItemView.extend({
         template:'#weather-average-template',
         ui:{
-            chart:'#donut-chart'
+            chart:'#bar-chart'
         },
         onShow: function(){
             this.initializeDonut(); 
         },
         initializeDonut: function(){
             
-            var doughnutData = [
-				{
-					value: 100,
-					color:"#F7464A",
-					highlight: "#5CB85C",
-					label: "Temperature"
-				},
-				{
-					value: 100,
-					color: "#46BFBD",
-					highlight: "#5AD3D1",
-					label: "Pressure"
-				},
-				{
-					value: 100,
-					color: "#FDB45C",
-					highlight: "#FFC870",
-					label: "Wind Speed"
-				}
-			];
-            
+            var barChartData = {
+                labels : ["Temperature","Pressure","Wind"],
+                datasets : [
+                    {
+                        fillColor : "rgba(220,220,220,0.5)",
+                        strokeColor : "rgba(220,220,220,0.8)",
+                        highlightFill: "rgba(220,220,220,0.75)",
+                        highlightStroke: "rgba(220,220,220,1)",
+                        data : [300,200,250]
+                    }
+                ]
+
+            };
+
             var context = this.ui.chart.get(0).getContext("2d");
             
-            new Chart(context).Doughnut(doughnutData, {responsive:true});
+            new Chart(context).Bar(barChartData, {responsive:true});
             
            
             
