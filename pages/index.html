@@ -321,7 +321,9 @@
             <i class="fa fa-bar-chart-o fa-fw"></i> Island Wide Averages
         </div>
         <div class="panel-body">
-            <div id="morris-donut-chart"></div>
+            <div id="donut-chart-holder">
+                <canvas id="donut-chart" width="300" height="300"></canvas>
+            </div>
         </div>
         <!-- /.panel-body -->
     </script>
@@ -337,7 +339,9 @@
     <!-- Metis Menu Plugin JavaScript -->
     <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
-    
+    <!-- Charts-->
+    <script type="text/javascript" src="../js/Chart.min.js"></script>
+                    
     <!-- Marionette -->
     <script type="text/javascript" src="../bower_components/underscore/underscore.js"></script>
     <script type="text/javascript" src="../bower_components/backbone/backbone.js"></script>
@@ -352,10 +356,7 @@
     <script type="text/javascript" src="../dist/js/JAWeatherWatch.Views.js"></script>
     <script type="text/javascript" src="../dist/js/JAWeatherWatch.Controller.js"></script>
                     
-    <!-- Morris Charts JavaScript -->
-    <script src="../bower_components/raphael/raphael-min.js"></script>
-    <script src="../bower_components/morrisjs/morris.min.js"></script>
-    <script src="../dist/js/morris-data.js"></script
+    
     
     
     <!-- start application-->
