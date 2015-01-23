@@ -43,7 +43,6 @@ JAWeatherWatch.module('Views', function(Views, JAWeatherWatch,Backbone,Marionett
             // rerenders everytime the model changes
             this.listenTo(this.model, 'change', function(){
                 this.render();
-                console.log(this.model.attributes);
             });
         }
     });
@@ -62,15 +61,21 @@ JAWeatherWatch.module('Views', function(Views, JAWeatherWatch,Backbone,Marionett
         },
         initializeDonut: function(){
             
+            var mainData = this.model.get('main');
+            var temperature = mainData.temp; 
+            var pressure = mainData.pressure;
+            var wind = this.model.get('wind').speed;
+            
+            
             var barChartData = {
-                labels : ["Temperature","Pressure","Wind"],
+                labels : ["Temperature","Pressure","Wind Speed"],
                 datasets : [
                     {
                         fillColor : "rgba(220,220,220,0.5)",
                         strokeColor : "rgba(220,220,220,0.8)",
                         highlightFill: "rgba(220,220,220,0.75)",
                         highlightStroke: "rgba(220,220,220,1)",
-                        data : [300,200,250]
+                        data : [temperature,pressure,wind]
                     }
                 ]
 

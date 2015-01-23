@@ -10,6 +10,7 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
         
         dashboard: new JAWeatherWatch.Views.Dashboard(),
         parish: new JAWeatherWatch.Cities.Parish(),
+        jamaica: new JAWeatherWatch.Cities.City({parishName:""}), 
         start:function(){
             
             this.showMenu();
@@ -18,6 +19,9 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
             this.listenTo(this.parish, 'change', function(){
                 this.showDashboard();
             });
+            this.listenTo(this.jamaica, 'change', function(){
+                this.showDashboard();
+            })
         },
         // loads the SideMenu item view in the menu region of the app
         showMenu:function(){
@@ -29,7 +33,7 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
             
             
             var forecast = new JAWeatherWatch.Views.Forecast({});
-            var averages = new JAWeatherWatch.Views.WeatherAverage({});
+            
             
             // rennders the dashbord in the content section of hte DOM
             JAWeatherWatch.content.show(this.dashboard);
@@ -39,7 +43,7 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
             
             
             this.dashboard.getRegion('forecast').show(forecast);
-            this.dashboard.getRegion('averages').show(averages);
+            this.dashboard.getRegion('averages').show(this.averagesInit());
             
         },
        // initilizes the notifications view and returns a notification Marionette.ItemView Object
@@ -60,6 +64,23 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
             
             return notifications;
             
+        },
+        averagesInit: function(){
+            
+            //initialize a new Cities Module with no parish name            
+            var averages = new JAWeatherWatch.Views.WeatherAverage({model:this.jamaica});
+            
+            this.jamaica.fetch({
+                success: function(){
+                    console.log('jamaica weather pattern data fetched successfully');
+                    
+                },
+                error: function(){
+                    alert('could not weather average data');
+                }
+            });
+            
+            return  averages;
         }
         
     });
