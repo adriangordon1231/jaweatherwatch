@@ -71,7 +71,6 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
             this.jamaica.fetch({
                 success: function(){
                     console.log('jamaica weather pattern data fetched successfully');
-                    
                 },
                 error: function(){
                     alert('could not weather average data');
@@ -82,7 +81,18 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
         }, 
         forecastInit: function(){
             
-            var forecast = new JAWeatherWatch.Views.Forecast({});
+            var estimates = new JAWeatherWatch.Cities.Forecast({parishName:this.parish.get('name')});
+            var forecast = new JAWeatherWatch.Views.Forecast({model:estimates});
+            
+            estimates.fetch({
+                success: function(){
+                    
+                    console.log(estimates.get('list'));
+                },
+                error: function(){
+                    alert('could not fetch forecast data');
+                }
+            });
             
             return forecast; 
         }

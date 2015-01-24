@@ -49,6 +49,9 @@ JAWeatherWatch.module('Cities', function(Cities, JAWeatherWatch, Backbone, Mario
     
     Cities.Forecast = Cities.City.extend({
         url: 'http://api.openweathermap.org/data/2.5/forecast/daily?q=',
+        defualts:{
+            list: []
+        },
         setQuery: function(){
             
             console.log('set query running');
