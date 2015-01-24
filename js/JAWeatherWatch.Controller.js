@@ -32,17 +32,15 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
             
             
             
-            var forecast = new JAWeatherWatch.Views.Forecast({});
+            
             
             
             // rennders the dashbord in the content section of hte DOM
             JAWeatherWatch.content.show(this.dashboard);
             
             // renders the sub views within the daskboard
-            this.dashboard.getRegion('notifications').show(this.notificationsInit());
-            
-            
-            this.dashboard.getRegion('forecast').show(forecast);
+            this.dashboard.getRegion('notifications').show(this.notificationsInit());  
+            this.dashboard.getRegion('forecast').show(this.forecastInit());
             this.dashboard.getRegion('averages').show(this.averagesInit());
             
         },
@@ -81,6 +79,12 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
             });
             
             return  averages;
+        }, 
+        forecastInit: function(){
+            
+            var forecast = new JAWeatherWatch.Views.Forecast({});
+            
+            return forecast; 
         }
         
     });
