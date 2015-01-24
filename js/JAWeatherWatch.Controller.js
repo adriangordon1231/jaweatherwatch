@@ -10,18 +10,20 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
         
         dashboard: new JAWeatherWatch.Views.Dashboard(),
         parish: new JAWeatherWatch.Cities.Parish(),
-        jamaica: new JAWeatherWatch.Cities.City({parishName:""}), 
+        jamaica: new JAWeatherWatch.Cities.City({parishName:""}),
         start:function(){
             
             this.showMenu();
             this.showDashboard();
             
             this.listenTo(this.parish, 'change', function(){
-                this.showDashboard();
+                this.dashboard.getRegion('notifications').show(this.notificationsInit());
+                this.dashboard.getRegion('forecast').show(this.forecastInit());
             });
             this.listenTo(this.jamaica, 'change', function(){
-                this.showDashboard();
-            })
+                this.dashboard.getRegion('averages').show(this.averagesInit());
+            });
+            
         },
         // loads the SideMenu item view in the menu region of the app
         showMenu:function(){
@@ -29,11 +31,6 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
         },
         // loads all the views related to the main application dashbaord
         showDashboard: function(){            
-            
-            
-            
-            
-            
             
             // rennders the dashbord in the content section of hte DOM
             JAWeatherWatch.content.show(this.dashboard);
@@ -51,8 +48,7 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
             var notifications = new JAWeatherWatch.Views.Notifications({model:city});
             city.fetch({
                 success: function(){                    
-                    console.log('city data fetched sucessfully');                
-                                        
+                    console.log('city data fetched sucessfully');                                    
                 },
                 error: function(){
                     alert('could not get weather data');
@@ -82,12 +78,13 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
         forecastInit: function(){
             
             var estimates = new JAWeatherWatch.Cities.Forecast({parishName:this.parish.get('name')});
+            
             var forecast = new JAWeatherWatch.Views.Forecast({model:estimates});
             
             estimates.fetch({
                 success: function(){
-                    
-                    console.log(estimates.get('list'));
+                    console.log('forecast data fetched successfully');
+                    //console.log(estimates.get('list'));
                 },
                 error: function(){
                     alert('could not fetch forecast data');

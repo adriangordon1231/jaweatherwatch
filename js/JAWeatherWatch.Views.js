@@ -45,16 +45,29 @@ JAWeatherWatch.module('Views', function (Views, JAWeatherWatch, Backbone, Marion
     Views.Forecast = Marionette.ItemView.extend({
         template: "#forecast-template",
         ui: {
-            chart: '#forecast-convas'
+            chart: '#forecast-canvas'
+        },
+        /*
+        *   Generates the graph once the data has been fetched
+        ________________________________________________________*/
+        initialize: function(){
+            this.listenTo(this.model, 'change', function(){
+                this.initLineGraph();
+            });
         },
         onShow: function () {
             
-            this.initLineGraph();
+            //this.initLineGraph();
         },
+        /*  Generates a line Graph displaying forecast data
+        _____________________________________________________*/
         initLineGraph: function () {
-
+            
+            var forecast = this.model.get('list');
+            console.log(forecast);
+            
             var lineChartData = {
-                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                labels: ["day 1", "2", "3", "4", "5", "6", "7"],
                 datasets: [
                     {
                         label: "My First dataset",
@@ -64,7 +77,8 @@ JAWeatherWatch.module('Views', function (Views, JAWeatherWatch, Backbone, Marion
                         pointStrokeColor: "#fff",
                         pointHighlightFill: "#fff",
                         pointHighlightStroke: "rgba(220,220,220,1)",
-                        data: [22,44,55,66,33,222,60]
+                        data: [forecast[0].temp.day,forecast[1].temp.day,forecast[2].temp.day,forecast[3].temp.day,forecast[4].temp.day,
+                               forecast[5].temp.day,forecast[6].temp.day]
                     }
                 ]
 
