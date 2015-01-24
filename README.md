@@ -1,4 +1,4 @@
-# Ja Weather Watch (Version 0.0.2 - far from complete)
+# Ja Weather Watch (Version 0.1.0 - 70% complete)
 JA weather watch is a simple practice web application that displays real time weather information for parishes inside Jamaica
 
 ## Uses the Open Weather Api
