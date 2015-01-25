@@ -15,6 +15,7 @@ JAWeatherWatch.module('Cities', function(Cities, JAWeatherWatch, Backbone, Mario
             apiKey: '&APPID=84cb7efaf4ac2947aa6381637904ee5e',
             country:'jamaica',
             parishName: false,
+            date: new Date(),
             weather: [{
                 description: 'no description'
             }],

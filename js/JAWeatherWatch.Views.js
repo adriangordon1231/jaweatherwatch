@@ -39,6 +39,7 @@ JAWeatherWatch.module('Views', function (Views, JAWeatherWatch, Backbone, Marion
             this.listenTo(this.model, 'change', function () {
                 this.render();
             });
+            
         }
     });
 
