@@ -1,3 +1,58 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
+
+//variables
+$main-font:'Open Sans Condensed', sans-serif;
+
+$main-color:rgba(12, 12, 12, 0.95);
+
+$menu-link-color:#F6F6F6;
+    
 body{
     
+    /*
+    *   Table of Contents
+    *   
+    *   1. Top Navigation Section
+    *   2. Side Navigation
+    *   3. Main Content
+    ________________________________*/
+    
+    font-family: $main-font;
+    
+    // 1. Top Nagivation
+    #top-navigation{
+        background:$main-color;
+        color:$menu-link-color;
+        a{
+            color:$menu-link-color;
+            font-size:0.8em;
+            &:hover{
+                color:$main-color;
+            }
+        }
+        
+        #title{
+            color:$menu-link-color; 
+            font-size:2em;
+            font-weight:bold;
+        }
+    }
+    
+    // 2. Side Navigation
+    #main-menu{
+        margin-top:5em;
+        color:$main-color;
+        a{
+            color:$main-color;
+            font-size:1.2em; 
+        }
+    }
+    
+    // 3. Main Content
+    #page-wrapper{
+        
+        .page-header{
+            margin-top:.5em;
+        }
+    }
 }
