@@ -3,9 +3,18 @@
 //variables
 $main-font:'Open Sans Condensed', sans-serif;
 
-$main-color:rgba(12, 12, 12, 0.95);
+$main-color:#323544;
+$secondary-color:#337AB7;
 
 $menu-link-color:#F6F6F6;
+
+//mixinx
+@mixin darkPanel{
+    .panel-heading{
+            background:$secondary-color;
+            color:$menu-link-color;
+        }
+}
     
 body{
     
@@ -15,6 +24,7 @@ body{
     *   1. Top Navigation Section
     *   2. Side Navigation
     *   3. Main Content
+    *   4. Notifications 
     ________________________________*/
     
     font-family: $main-font;
@@ -46,13 +56,54 @@ body{
             color:$main-color;
             font-size:1.2em; 
         }
+        #side-menu{
+            #parish-picker-form{
+                .form-group{
+                    width:100%;
+                    .input-group{
+                        width:100%; 
+                        font-weight:bold;
+                    }
+                }
+            }
+        }
+        
+        @media screen and (max-width: 768px){
+            margin-top: 0px;
+        }
     }
     
     // 3. Main Content
-    #page-wrapper{
+    #page-wrapper{        
         
         .page-header{
             margin-top:.5em;
+        }
+        
+        // 4. Notifications
+        #notifications{
+            .panel{
+                border-radius:0px;
+            }
+        }
+        
+        #forecast{
+            
+            @include darkPanel;
+                
+            border-bottom:none;
+            #forecast-canvas{
+                max-width:101%;
+            }
+        }
+        
+        #average{
+            
+            @include darkPanel;
+        }
+        
+        #timeline{
+            @include darkPanel;
         }
     }
 }
