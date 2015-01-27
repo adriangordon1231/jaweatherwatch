@@ -2,7 +2,8 @@
 
 JAWeatherWatch.module('Views', function (Views, JAWeatherWatch, Backbone, Marionette) {
 
-    /*  SideMenu
+    /*  SideMenu View
+    *
     *   The sidemenu itemview hold the tempate and actions affectting the app's 
     *   main side menu
     ___________________________________________________________________________*/
@@ -28,7 +29,12 @@ JAWeatherWatch.module('Views', function (Views, JAWeatherWatch, Backbone, Marion
 
         }
     });
-
+    
+    /*  DashBoard View
+    *
+    *   A simple layout view that stores the main app template and defines the 
+    *   'active' sections of the application
+    ___________________________________________________________________________*/
     Views.Dashboard = Marionette.LayoutView.extend({
         template: '#dashboard-template',
         regions: {
@@ -49,6 +55,12 @@ JAWeatherWatch.module('Views', function (Views, JAWeatherWatch, Backbone, Marion
             
         }
     });
+    
+    /*  Forecast View
+    *
+    *   Controls the rendering of the weather forecast line graph that
+    *   is displayed in the '#forecast' section of the application
+    _________________________________________________________________*/
 
     Views.Forecast = Marionette.ItemView.extend({
         template: "#forecast-template",
@@ -63,16 +75,19 @@ JAWeatherWatch.module('Views', function (Views, JAWeatherWatch, Backbone, Marion
                 this.initLineGraph();
             });
         },
-        onShow: function () {
-            
-            //this.initLineGraph();
-        },
-        /*  Generates a line Graph displaying forecast data
-        _____________________________________________________*/
+
+        //  Generates a line Graph displaying forecast data
         initLineGraph: function () {
             
+            // gets the values insude the 'list' attribute of the model
             var forecast = this.model.get('list');
             
+            // filters the list by temperature
+            var tempForecast = _.map(forecast, function(val){
+                return val.temp.day; 
+            });
+            
+            // initilizes the data values needed draw a line graph
             var lineChartData = {
                 labels: ["day 1", "2", "3", "4", "5", "6", "7"],
                 datasets: [
@@ -84,19 +99,26 @@ JAWeatherWatch.module('Views', function (Views, JAWeatherWatch, Backbone, Marion
                         pointStrokeColor: "#fff",
                         pointHighlightFill: "#fff",
                         pointHighlightStroke: "rgba(220,220,220,1)",
-                        data: [forecast[0].temp.day,forecast[1].temp.day,forecast[2].temp.day,forecast[3].temp.day,forecast[4].temp.day,
-                               forecast[5].temp.day,forecast[6].temp.day]
+                        data: tempForecast
                     }
                 ]
 
             };
             
+            // draws a line graph on the specified html5 cnavas
             var context = this.ui.chart.get(0).getContext("2d");
-            new Chart(context).Line(lineChartData, {responsive: true});
+            new Chart(context).Line(lineChartData, {
+                responsive: true
+            });
 
         }
     });
-
+    
+    /*  Weather Average View
+    *
+    *   Controls the rendering of the bar graph in the '#averages'
+    *   section of the application
+    */
     Views.WeatherAverage = Marionette.ItemView.extend({
         template: '#weather-average-template',
         ui: {
@@ -106,13 +128,14 @@ JAWeatherWatch.module('Views', function (Views, JAWeatherWatch, Backbone, Marion
             this.initializeDonut();
         },
         initializeDonut: function () {
-
+            
+            // reteives the relevent data values from the model
             var mainData = this.model.get('main');
             var temperature = mainData.temp;
             var pressure = mainData.pressure;
             var wind = this.model.get('wind').speed;
-
-
+            
+            // initializes the data needed to draw the graph
             var barChartData = {
                 labels: ["Temperature", "Pressure", "Wind Speed"],
                 datasets: [
@@ -126,15 +149,12 @@ JAWeatherWatch.module('Views', function (Views, JAWeatherWatch, Backbone, Marion
                 ]
 
             };
-
+            
+            // draws a bar graph in the specified html canvas element
             var context = this.ui.chart.get(0).getContext("2d");
-
             new Chart(context).Bar(barChartData, {
                 responsive: true
             });
-
-
-
 
         }
     });
