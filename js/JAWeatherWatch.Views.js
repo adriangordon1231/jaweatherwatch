@@ -11,6 +11,12 @@ JAWeatherWatch.module('Views', function (Views, JAWeatherWatch, Backbone, Marion
         ui: {
             selector: '#parish-selector'
         },
+        initialize: function(){
+            
+            this.listenTo(this.model,'change', function(){
+                //todo : change the value of the select box when it matches a url
+            });
+        },
         events: {
             "change @ui.selector": 'updateParish'
         },
@@ -18,6 +24,7 @@ JAWeatherWatch.module('Views', function (Views, JAWeatherWatch, Backbone, Marion
         updateParish: function () {
 
             this.model.set('name', this.ui.selector.val().toLocaleLowerCase());
+            
 
         }
     });

@@ -94,9 +94,9 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
             
             return forecast; 
         },
+        // Dynamically sets the parish name based on the entered url
        changeCity: function(query){
            this.parish.set('name',query);
-           alert('on ' + query);
        }
         
     });
