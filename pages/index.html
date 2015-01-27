@@ -365,9 +365,9 @@
 
         // start the conroller and the marionette application
 
-        controller.start().then(JAWeatherWatch.start());
-        
-        
+        //controller.start().then(JAWeatherWatch.start());
+        JAWeatherWatch.start(); //.then(controller.start());
+        controller.start();
     </script>
 
 </body>

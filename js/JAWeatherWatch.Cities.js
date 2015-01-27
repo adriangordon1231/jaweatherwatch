@@ -73,18 +73,3 @@ JAWeatherWatch.module('Cities', function(Cities, JAWeatherWatch, Backbone, Mario
 });
 
 
-
-/*  Forecast Model Test => Success
-_________________________________*/
-/*
-var test = new JAWeatherWatch.Cities.Forecast({parishName:'kingston'});
-
-test.fetch({
-    success: function(){
-        console.log(test.get('list')[0].clouds);
-    },
-    error: function(){
-        alert('error when fetching data');
-    }
-});
-*/

@@ -24,6 +24,7 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
                 this.dashboard.getRegion('averages').show(this.averagesInit());
             });
             
+            new JAWeatherWatch.App.Router();
         },
         // loads the SideMenu item view in the menu region of the app
         showMenu:function(){
@@ -84,7 +85,7 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
             estimates.fetch({
                 success: function(){
                     console.log('forecast data fetched successfully');
-                    //console.log(estimates.get('list'));
+                    
                 },
                 error: function(){
                     alert('could not fetch forecast data');
@@ -92,14 +93,22 @@ JAWeatherWatch.module('App', function(App,JAWeatherWatch, Backbone, Marionette){
             });
             
             return forecast; 
-        }
+        },
+       changeCity: function(query){
+           this.parish.set('name',query);
+           alert('on ' + query);
+       }
         
     });
     
     /*  Router
     *   This object is used to controll routing within the application (I am not touching this for now lol)
     */
-    App.Router = Marionette.AppRouter.extend({});
+    App.Router = Marionette.AppRouter.extend({
+        appRoutes:{
+            ':query':'changeCity'
+        }
+    });
     
     
     

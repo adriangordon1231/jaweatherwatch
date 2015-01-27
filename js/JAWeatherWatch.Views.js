@@ -65,7 +65,6 @@ JAWeatherWatch.module('Views', function (Views, JAWeatherWatch, Backbone, Marion
         initLineGraph: function () {
             
             var forecast = this.model.get('list');
-            console.log(forecast);
             
             var lineChartData = {
                 labels: ["day 1", "2", "3", "4", "5", "6", "7"],
