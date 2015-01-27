@@ -6,7 +6,7 @@ ________________________________________________________________________________
 JAWeatherWatch.module('Cities', function(Cities, JAWeatherWatch, Backbone, Marionette){
     
     /*  Cities
-    *   This model is used to model the datat retued by the open weather api 
+    *   This model is used to model the data retured by the open weather api 
     *   for each individual city in jamaica (must provide parish name!!)
     ________________________________________________________________________*/
     Cities.City = Backbone.Model.extend({
@@ -30,8 +30,8 @@ JAWeatherWatch.module('Cities', function(Cities, JAWeatherWatch, Backbone, Mario
         url:'http://api.openweathermap.org/data/2.5/weather?q=',
         initialize: function(){
             
-            this.url = this.setQuery();
-            
+            // sets the desired url and fetches the model data
+            this.url = this.setQuery();            
             this.fetch();
             
         },
@@ -48,11 +48,18 @@ JAWeatherWatch.module('Cities', function(Cities, JAWeatherWatch, Backbone, Mario
         
     });
     
+    /*  Forecast Model
+    *
+    *   Models the data retured by the open weather api when making a 
+    *   request for a daily weather forecast. This model extends the 
+    *   City model and overrides the 'url' variable and the 'setQuery' method
+    _________________________________________________________________________*/    
     Cities.Forecast = Cities.City.extend({
         url: 'http://api.openweathermap.org/data/2.5/forecast/daily?q=',
         defualts:{
             list: []
         },
+        // refactors the set query method to return a jason array containg a daily weather forecast
         setQuery: function(){
             
             console.log('set query running');
@@ -63,6 +70,11 @@ JAWeatherWatch.module('Cities', function(Cities, JAWeatherWatch, Backbone, Mario
         }
     });
     
+    /*  Parish Model
+    *
+    *   This model exists for the sole purpose of controlling what parish/city is 
+    *   to be fetched from the api. 
+    _____________________________________________________________________________*/
     Cities.Parish = Backbone.Model.extend({
         defaults:{
             name:'kingston'
